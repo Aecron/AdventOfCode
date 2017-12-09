@@ -1,6 +1,6 @@
 // We wanna write a simulation of the Spiral Memory
 // For that, we will be creating an Array with 2 dimension, to represent a grid
-// that we will be filling from 1 to our goal, 347991, no need to fill out more.
+// that we will be filling from 1 to our goal, 347991 in my case, no need to fill out more.
 // We will start filling this array from the center.
 
 
@@ -8,7 +8,7 @@
 // it will be a Square (so x * x size), and that x will always be an odd number.
 // As we will be feeding numbers with an incrementation of 1, if we have an array of
 // 3 * 3, (9 cells), we will go up to 9. Let's figure out the size of the array 
-// we need at first to go up to 347991.
+// we need at first to go up to GOAL.
 
 function square(x) {return x*x;}
 function sizeNeeded(goal) {
@@ -24,7 +24,8 @@ function sizeNeeded(goal) {
 // 2 dimensions of the size we just found ; we will be filling every cell with the default
 // value of 0.
 
-let size = sizeNeeded(347991);
+let goal = 347991;
+let size = sizeNeeded(goal);
 let spiral = new Array(size);           // array of 1 dimension of SIZE
 for (let i = 0 ; i < size ; i++) {
 
@@ -37,7 +38,7 @@ for (let i = 0 ; i < size ; i++) {
 // SIZE is an odd number, we need to truncate the decimal part of it.
 let startXY = parseInt(size / 2);       // just extract an Integar (no decimal) of SIZE/2
 
-// We will soon start to fill out this Array, up to our goal (347991), but we will need
+// We will soon start to fill out this Array, up to our goal, but we will need
 // to remember what was the final cell ; that's how we will be able to calculate the
 // "shorter path" from the center to the final cell
 let endX, endY;
@@ -48,10 +49,10 @@ let direction = "right";
 // Let's do this. We initialize our cursor position to the center of the array,
 // and the current number we are filling to 1. Then we fill up until we reach
 // our goal value, while just doing +1 for every step
-for (let i = startXY, j = startXY, c = 1 ; c <= 347991 ; c++) {
+for (let i = startXY, j = startXY, c = 1 ; c <= goal ; c++) {
 
     // Before we forget, let's set our "end" coordinates if we reached our goal
-    if (c == 347991) {endX = i; endY = j;}
+    if (c == goal) {endX = i; endY = j;}
     
     spiral[i][j] = c;                   // just fill the value to spiral
 
@@ -81,7 +82,7 @@ for (let i = startXY, j = startXY, c = 1 ; c <= 347991 ; c++) {
     }
 }
 
-// Okay, now we should have endX and endY pointing to the cell of 347991. The number of steps to reach it from the center
+// Okay, now we should have endX and endY pointing to the cell of GOAL. The number of steps to reach it from the center
 // is just the difference in X and in Y axises from the center to our current cell. in Absolute value.
 let stepsX = (endX > startXY) ? endX - startXY : startXY - endX;
 let stepsY = (endY > startXY) ? endY - startXY : startXY - endY;
