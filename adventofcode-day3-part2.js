@@ -40,7 +40,7 @@ for (let i = startXY, j = startXY ; c <= goal ; ) {
     c = 0;
     // as we are in a completly oversized array, testing for borders isn't much needed, but let's make it *the right way*
     if (i > 0 && j > 0) c += spiral[i-1][j-1];
-    if (i > 0 && j < size - 1) c+= spiral[i-1][j+1];
+    if (i > 0 && j < size - 1) c += spiral[i-1][j+1];
     if (i > 0) c += spiral[i-1][j];
     
     if (i < size - 1 && j > 0) c += spiral[i+1][j-1];
