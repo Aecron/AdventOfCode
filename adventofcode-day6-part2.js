@@ -1,3 +1,11 @@
+function HTTPGet(url) {
+ 
+    xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false);
+    xhr.send();  
+    return xhr.responseText;  
+}
+
 function isEqualBanks (a, b) {
 
     for (let i = 0 ; i < a.length ; i++)
@@ -39,9 +47,15 @@ function RunCycle() {
     cycles++;
 }
 
-let banks = [0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11];
-let seen_banks = new Array();
+let input = HTTPGet('http://adventofcode.com/2017/day/6/input');
+let raw = input.split('\t');
+
+let banks = []
+let seen_banks = [];
 let cycles = 0;
+
+for (let i = 0 ; i < raw.length ; i++)
+    banks.push(parseInt(raw[i]));
 
 do {
 
