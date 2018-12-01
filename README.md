@@ -7,3 +7,4 @@ Day1, 2, 4 and 5 missing because I only started to upload the code of Day3 (whil
 ## Year 2018 (C)
 
 (Apologies, my C is a tiny bit rusty, hence why i chose it this year)
+Malpractice putting functions' bodies in headers file? Who cares, it's AdventOfCode.

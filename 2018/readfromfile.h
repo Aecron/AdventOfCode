@@ -4,28 +4,28 @@
     #include <stdio.h>
     #include <stdlib.h>
 
-    inline char* readfromfile(char* filename) {
+    char* readfromfile(char* filename) {
 
-    FILE* file = fopen(filename, "r");
-    char* content;
-    size_t n = 0;
-    int c;
+        FILE* file = fopen(filename, "r");
+        char* content;
+        size_t n = 0;
+        int c;
 
-    if (file == NULL)
-        return NULL;
+        if (file == NULL)
+            return NULL;
 
-    fseek(file, 0, SEEK_END);
-    long filesize = ftell(file);
+        fseek(file, 0, SEEK_END);
+        long filesize = ftell(file);
 
-    fseek(file, 0, SEEK_SET);
-    content = (char*) malloc(filesize);
+        fseek(file, 0, SEEK_SET);
+        content = (char*) malloc(filesize);
 
-    while ((c = fgetc(file)) != EOF)
-        content[n++] = (char) c;
+        while ((c = fgetc(file)) != EOF)
+            content[n++] = (char) c;
 
-    content[n] = '\0';
+        content[n] = '\0';
 
-    return content;
-}
+        return content;
+    }
 
 #endif
