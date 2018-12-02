@@ -1,5 +1,4 @@
 #include "readfromfile.h"
-#include "array_d.h"
 
 int main() {
 
@@ -13,7 +12,7 @@ int main() {
     size_t i, j, k;
 
     int sum2 = 0, sum3 = 0;
-    uint current, count;
+    int current, count;
 
     for (i = 0, j = 0, current = 0 ; input[i] != '\0' ; i++) {
 
