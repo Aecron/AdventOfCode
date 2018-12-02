@@ -3,6 +3,8 @@
 
     #include <stdlib.h>
 
+    typedef unsigned int uint;
+
     // it would take less time to realloc() only once in a while (size * 2) instead of everytime we insert an element, but what the hell.
     typedef struct {
 
@@ -28,26 +30,38 @@
         initArray(array);
     }
 
-    int inArray(const Array* array, int value) {
+    int inArray(const Array* array, int element) {
 
         size_t i;
         for (i = 0 ; i < array->size ; i++)
-            if (array->data[i] == value)
+            if (array->data[i] == element)
                 return 1;
 
         return 0;
     }
 
-    void printArray(const Array* array) {
+    // uint countInArray(const Array* array, int element) {
 
-        size_t i;
+    //     size_t i;
+    //     uint count = 0;
+
+    //     for (i = 0 ; i < array->size ; i++)
+    //         if (array->data[i] == element)
+    //             count++;
+
+    //     return count;
+    // }
+
+    // void printArray(const Array* array) {
+
+    //     size_t i;
         
-        printf("\n=====\n");
+    //     printf("\n=====\n");
 
-        for (i = 0 ; i < array->size ; i++)
-            printf("%d ", array->data[i]);
+    //     for (i = 0 ; i < array->size ; i++)
+    //         printf("%d ", array->data[i]);
 
-        printf("\n=====\n");
-    }
+    //     printf("\n=====\n");
+    // }
 
 #endif
