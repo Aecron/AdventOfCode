@@ -24,6 +24,7 @@
             content[n++] = (char) c;
 
         content[n] = '\0';
+        fclose(file);
 
         return content;
     }
